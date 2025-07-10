@@ -2,6 +2,9 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
 import Dashboard from "@/components/Dashboard";
+import RecebimentoConcreto from "@/components/RecebimentoConcreto";
+import PlanejamentoVolume from "@/components/PlanejamentoVolume";
+import MapaConcretagem from "@/components/MapaConcretagem";
 
 const Index = () => {
   return (
@@ -16,6 +19,15 @@ const Index = () => {
         </section>
         <section id="dashboard">
           <Dashboard />
+        </section>
+        <section id="recebimento">
+          <RecebimentoConcreto />
+        </section>
+        <section id="planejamento">
+          <PlanejamentoVolume />
+        </section>
+        <section id="mapa">
+          <MapaConcretagem />
         </section>
       </main>
     </div>

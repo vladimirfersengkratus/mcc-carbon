@@ -3,9 +3,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { 
   TrendingUp, 
-  Users, 
-  DollarSign, 
-  Activity,
+  Truck, 
+  Building, 
+  Beaker,
   ArrowUpRight,
   MoreHorizontal,
   Sparkles
@@ -14,40 +14,40 @@ import {
 const Dashboard = () => {
   const metrics = [
     {
-      title: "Receita Total",
-      value: "R$ 45.231",
-      change: "+20.1% vs mês anterior",
-      icon: DollarSign,
+      title: "Volume Recebido",
+      value: "156.8 m³",
+      change: "+12.5 m³ hoje",
+      icon: Truck,
       positive: true
     },
     {
-      title: "Usuários Ativos",
-      value: "2.350",
-      change: "+180 novos hoje",
-      icon: Users,
+      title: "Estruturas Concluídas",
+      value: "8",
+      change: "+2 esta semana",
+      icon: Building,
       positive: true
     },
     {
-      title: "Taxa de Conversão",
-      value: "12.5%",
-      change: "+2.5% vs semana anterior",
-      icon: TrendingUp,
-      positive: true
-    },
-    {
-      title: "Performance",
+      title: "Taxa de Aprovação",
       value: "98.2%",
-      change: "Sistema estável",
-      icon: Activity,
+      change: "Slump tests aprovados",
+      icon: Beaker,
+      positive: true
+    },
+    {
+      title: "Progresso da Obra",
+      value: "42%",
+      change: "+8% este mês",
+      icon: TrendingUp,
       positive: true
     }
   ];
 
   const recentActivity = [
-    { user: "João Silva", action: "Completou projeto", time: "2 min atrás", status: "success" },
-    { user: "Maria Santos", action: "Enviou relatório", time: "5 min atrás", status: "info" },
-    { user: "Pedro Costa", action: "Atualizou perfil", time: "12 min atrás", status: "warning" },
-    { user: "Ana Oliveira", action: "Fez upload de arquivo", time: "18 min atrás", status: "success" }
+    { user: "Caminhão ABC-1234", action: "Concreto recebido e aprovado", time: "2 min atrás", status: "success" },
+    { user: "Engenheiro Carlos", action: "Slump test realizado", time: "15 min atrás", status: "info" },
+    { user: "Equipe Concretagem", action: "Laje L1 iniciada", time: "1 hora atrás", status: "warning" },
+    { user: "ConcrePro Ltda", action: "NF-001234 registrada", time: "2 horas atrás", status: "success" }
   ];
 
   return (
@@ -56,14 +56,14 @@ const Dashboard = () => {
         <div className="text-center mb-12 fade-in-up">
           <div className="inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full mb-6">
             <Sparkles className="w-4 h-4 text-accent" />
-            <span className="text-sm font-medium">Dashboard Inteligente</span>
+            <span className="text-sm font-medium">Dashboard da Obra</span>
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Controle total do seu{" "}
-            <span className="gradient-text">negócio</span>
+            Controle total da{" "}
+            <span className="gradient-text">concretagem</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Monitore métricas em tempo real, analise tendências e tome decisões baseadas em dados.
+            Monitore recebimentos, qualidade e progresso da obra em tempo real.
           </p>
         </div>
 
@@ -97,8 +97,8 @@ const Dashboard = () => {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle>Análise de Performance</CardTitle>
-                  <CardDescription>Crescimento nos últimos 30 dias</CardDescription>
+                  <CardTitle>Volume de Concreto por Dia</CardTitle>
+                  <CardDescription>Recebimentos dos últimos 30 dias</CardDescription>
                 </div>
                 <Button variant="ghost" size="sm">
                   <MoreHorizontal className="w-4 h-4" />
@@ -109,7 +109,7 @@ const Dashboard = () => {
               <div className="h-64 bg-gradient-accent/10 rounded-lg flex items-center justify-center border border-accent/20">
                 <div className="text-center">
                   <TrendingUp className="w-12 h-12 text-accent mx-auto mb-4" />
-                  <p className="text-muted-foreground">Gráfico interativo em breve</p>
+                  <p className="text-muted-foreground">Gráfico de volumes em breve</p>
                 </div>
               </div>
             </CardContent>
@@ -118,8 +118,8 @@ const Dashboard = () => {
           {/* Activity Feed */}
           <Card className="glass-card">
             <CardHeader>
-              <CardTitle>Atividade Recente</CardTitle>
-              <CardDescription>Últimas ações do sistema</CardDescription>
+              <CardTitle>Atividade da Obra</CardTitle>
+              <CardDescription>Últimas atividades de concretagem</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">

@@ -8,9 +8,9 @@ const Navbar = () => {
   const navItems = [
     { name: "Início", href: "#home" },
     { name: "Recursos", href: "#features" },
-    { name: "Dashboard", href: "#dashboard" },
-    { name: "Preços", href: "#pricing" },
-    { name: "Contato", href: "#contact" }
+    { name: "Recebimento", href: "#recebimento" },
+    { name: "Planejamento", href: "#planejamento" },
+    { name: "Mapa", href: "#mapa" }
   ];
 
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center glow-effect">
               <Zap className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl font-bold gradient-text">NeoApp</span>
+            <span className="text-xl font-bold gradient-text">ConcreteControl</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -43,7 +43,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Button variant="ghost">Entrar</Button>
             <Button variant="gradient">
-              Começar grátis
+              Nova obra
             </Button>
           </div>
 
@@ -73,14 +73,14 @@ const Navbar = () => {
                   {item.name}
                 </a>
               ))}
-              <div className="flex flex-col space-y-2 pt-4 border-t border-white/10">
-                <Button variant="ghost" className="justify-start">
-                  Entrar
-                </Button>
-                <Button variant="gradient" className="justify-start">
-                  Começar grátis
-                </Button>
-              </div>
+               <div className="flex flex-col space-y-2 pt-4 border-t border-white/10">
+                 <Button variant="ghost" className="justify-start">
+                   Entrar
+                 </Button>
+                 <Button variant="gradient" className="justify-start">
+                   Nova obra
+                 </Button>
+               </div>
             </div>
           </div>
         )}

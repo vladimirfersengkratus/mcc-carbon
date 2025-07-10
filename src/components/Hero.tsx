@@ -14,46 +14,46 @@ const Hero = () => {
       <div className="container mx-auto px-6 text-center fade-in-up">
         <div className="mb-6 inline-flex items-center gap-2 glass-card px-4 py-2 rounded-full">
           <Sparkles className="w-4 h-4 text-accent" />
-          <span className="text-sm font-medium">Bem-vindo ao futuro</span>
+          <span className="text-sm font-medium">ConcreteControl Pro</span>
         </div>
 
         <h1 className="text-6xl md:text-8xl font-bold mb-6 leading-tight">
-          Transforme suas{" "}
-          <span className="gradient-text">ideias</span>
+          Controle total da{" "}
+          <span className="gradient-text">concretagem</span>
           <br />
-          em realidade
+          na sua obra
         </h1>
 
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
-          Descubra uma plataforma revolucionária que combina inovação, 
-          design elegante e performance excepcional para criar experiências únicas.
+          Sistema completo para registro de recebimento, planejamento de volumes 
+          e mapeamento visual do status de concretagem em obras de concreto armado.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <Button variant="hero" className="group">
-            Começar agora
+            Iniciar controle
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           
           <Button variant="glass" size="lg">
             <Zap className="w-5 h-5" />
-            Ver demonstração
+            Ver mapa de obra
           </Button>
         </div>
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
           <div className="glass-card p-6 hover-lift">
-            <div className="text-3xl font-bold gradient-text mb-2">99.9%</div>
-            <div className="text-muted-foreground">Uptime garantido</div>
+            <div className="text-3xl font-bold gradient-text mb-2">100%</div>
+            <div className="text-muted-foreground">Controle de qualidade</div>
           </div>
           <div className="glass-card p-6 hover-lift">
-            <div className="text-3xl font-bold gradient-text mb-2">50ms</div>
-            <div className="text-muted-foreground">Latência média</div>
+            <div className="text-3xl font-bold gradient-text mb-2">24/7</div>
+            <div className="text-muted-foreground">Monitoramento</div>
           </div>
           <div className="glass-card p-6 hover-lift">
-            <div className="text-3xl font-bold gradient-text mb-2">1M+</div>
-            <div className="text-muted-foreground">Usuários ativos</div>
+            <div className="text-3xl font-bold gradient-text mb-2">500+</div>
+            <div className="text-muted-foreground">Obras ativas</div>
           </div>
         </div>
       </div>
