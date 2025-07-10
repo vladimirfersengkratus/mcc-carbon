@@ -8,38 +8,38 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Modern gradient color system */
-    --background: 222 84% 4.9%;
-    --foreground: 210 40% 98%;
+    /* Civil engineering color system */
+    --background: 210 25% 8%;
+    --foreground: 45 15% 95%;
 
-    --card: 222 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 210 25% 8%;
+    --card-foreground: 45 15% 95%;
 
-    --popover: 222 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 210 25% 8%;
+    --popover-foreground: 45 15% 95%;
 
-    /* Primary gradient: Blue to Purple */
-    --primary: 258 90% 66%;
-    --primary-foreground: 210 40% 98%;
-    --primary-glow: 272 87% 75%;
+    /* Primary: Engineering blue */
+    --primary: 210 95% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 205 100% 65%;
 
-    /* Secondary with glass effect */
-    --secondary: 217 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    /* Secondary: Concrete gray */
+    --secondary: 210 10% 20%;
+    --secondary-foreground: 45 15% 95%;
 
-    --muted: 217 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 210 10% 20%;
+    --muted-foreground: 210 8% 65%;
 
-    /* Accent cyan */
-    --accent: 189 100% 67%;
-    --accent-foreground: 222 84% 4.9%;
+    /* Accent: Safety orange */
+    --accent: 25 95% 60%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217 32.6% 17.5%;
-    --input: 217 32.6% 17.5%;
-    --ring: 258 90% 66%;
+    --border: 210 15% 25%;
+    --input: 210 15% 25%;
+    --ring: 210 95% 55%;
 
     --radius: 0.75rem;
 
