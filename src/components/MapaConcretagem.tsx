@@ -18,30 +18,40 @@ const MapaConcretagem = () => {
   const [filtroStatus, setFiltroStatus] = useState("todos");
   const [pavimentoAtivo, setPavimentoAtivo] = useState("1");
 
-  // Dados simulados das peças estruturais
+  // Dados simulados das peças estruturais com alinhamento correto
   const pecas = [
-    // Pavimento 1
-    { id: 1, tipo: "pilar", nome: "P1", status: "concluido", x: 2, y: 2, pavimento: "1", data: "2024-01-10" },
-    { id: 2, tipo: "pilar", nome: "P2", status: "concluido", x: 6, y: 2, pavimento: "1", data: "2024-01-10" },
-    { id: 3, tipo: "pilar", nome: "P3", status: "concluido", x: 10, y: 2, pavimento: "1", data: "2024-01-10" },
-    { id: 4, tipo: "pilar", nome: "P4", status: "concluido", x: 2, y: 6, pavimento: "1", data: "2024-01-10" },
+    // Pavimento 1 - Pilares nos eixos estruturais
+    { id: 1, tipo: "pilar", nome: "P1", status: "concluido", x: 3, y: 3, pavimento: "1", data: "2024-01-10" },
+    { id: 2, tipo: "pilar", nome: "P2", status: "concluido", x: 6, y: 3, pavimento: "1", data: "2024-01-10" },
+    { id: 3, tipo: "pilar", nome: "P3", status: "concluido", x: 9, y: 3, pavimento: "1", data: "2024-01-10" },
+    { id: 4, tipo: "pilar", nome: "P4", status: "concluido", x: 3, y: 6, pavimento: "1", data: "2024-01-10" },
     { id: 5, tipo: "pilar", nome: "P5", status: "concluido", x: 6, y: 6, pavimento: "1", data: "2024-01-10" },
-    { id: 6, tipo: "pilar", nome: "P6", status: "concluido", x: 10, y: 6, pavimento: "1", data: "2024-01-10" },
+    { id: 6, tipo: "pilar", nome: "P6", status: "concluido", x: 9, y: 6, pavimento: "1", data: "2024-01-10" },
     
-    { id: 7, tipo: "viga", nome: "V1", status: "em_andamento", x: 2, y: 1, pavimento: "1", width: 4, height: 1 },
-    { id: 8, tipo: "viga", nome: "V2", status: "em_andamento", x: 6, y: 1, pavimento: "1", width: 4, height: 1 },
-    { id: 9, tipo: "viga", nome: "V3", status: "planejado", x: 1, y: 2, pavimento: "1", width: 1, height: 4 },
-    { id: 10, tipo: "viga", nome: "V4", status: "planejado", x: 11, y: 2, pavimento: "1", width: 1, height: 4 },
+    // Vigas - eixos alinhados com pilares, faces alinhadas com bordas das lajes
+    { id: 7, tipo: "viga", nome: "V1", status: "em_andamento", x: 3, y: 2, pavimento: "1", width: 3, height: 1, direcao: "horizontal" },
+    { id: 8, tipo: "viga", nome: "V2", status: "em_andamento", x: 6, y: 2, pavimento: "1", width: 3, height: 1, direcao: "horizontal" },
+    { id: 9, tipo: "viga", nome: "V3", status: "planejado", x: 2, y: 3, pavimento: "1", width: 1, height: 3, direcao: "vertical" },
+    { id: 10, tipo: "viga", nome: "V4", status: "planejado", x: 10, y: 3, pavimento: "1", width: 1, height: 3, direcao: "vertical" },
+    { id: 15, tipo: "viga", nome: "V5", status: "em_andamento", x: 3, y: 7, pavimento: "1", width: 6, height: 1, direcao: "horizontal" },
+    { id: 16, tipo: "viga", nome: "V6", status: "planejado", x: 6, y: 3, pavimento: "1", width: 1, height: 4, direcao: "vertical" },
     
-    { id: 11, tipo: "laje", nome: "L1", status: "planejado", x: 3, y: 3, pavimento: "1", width: 6, height: 4 },
+    // Lajes - faces alinhadas com faces das vigas
+    { id: 11, tipo: "laje", nome: "L1", status: "planejado", x: 3, y: 3, pavimento: "1", width: 3, height: 3 },
+    { id: 12, tipo: "laje", nome: "L2", status: "planejado", x: 7, y: 3, pavimento: "1", width: 2, height: 3 },
 
-    // Pavimento 2
-    { id: 21, tipo: "pilar", nome: "P1", status: "planejado", x: 2, y: 2, pavimento: "2" },
-    { id: 22, tipo: "pilar", nome: "P2", status: "planejado", x: 6, y: 2, pavimento: "2" },
-    { id: 23, tipo: "pilar", nome: "P3", status: "planejado", x: 10, y: 2, pavimento: "2" },
-    { id: 24, tipo: "pilar", nome: "P4", status: "planejado", x: 2, y: 6, pavimento: "2" },
+    // Pavimento 2 - Pilares alinhados com os do pav. inferior
+    { id: 21, tipo: "pilar", nome: "P1", status: "planejado", x: 3, y: 3, pavimento: "2" },
+    { id: 22, tipo: "pilar", nome: "P2", status: "planejado", x: 6, y: 3, pavimento: "2" },
+    { id: 23, tipo: "pilar", nome: "P3", status: "planejado", x: 9, y: 3, pavimento: "2" },
+    { id: 24, tipo: "pilar", nome: "P4", status: "planejado", x: 3, y: 6, pavimento: "2" },
     { id: 25, tipo: "pilar", nome: "P5", status: "planejado", x: 6, y: 6, pavimento: "2" },
-    { id: 26, tipo: "pilar", nome: "P6", status: "planejado", x: 10, y: 6, pavimento: "2" },
+    { id: 26, tipo: "pilar", nome: "P6", status: "planejado", x: 9, y: 6, pavimento: "2" },
+    
+    // Vigas do 2º pavimento
+    { id: 27, tipo: "viga", nome: "V1", status: "planejado", x: 3, y: 2, pavimento: "2", width: 3, height: 1, direcao: "horizontal" },
+    { id: 28, tipo: "viga", nome: "V2", status: "planejado", x: 6, y: 2, pavimento: "2", width: 3, height: 1, direcao: "horizontal" },
+    { id: 29, tipo: "laje", nome: "L1", status: "planejado", x: 3, y: 3, pavimento: "2", width: 6, height: 4 },
   ];
 
   const getStatusColor = (status: string) => {
@@ -208,6 +218,30 @@ const MapaConcretagem = () => {
                     const width = peca.width || 1;
                     const height = peca.height || 1;
                     
+                    // Estilos específicos por tipo de elemento estrutural
+                    let tipoClasses = "";
+                    let borderStyle = "";
+                    
+                    switch (peca.tipo) {
+                      case "pilar":
+                        tipoClasses = "border-2 border-white/30 font-bold text-xs";
+                        borderStyle = "solid";
+                        break;
+                      case "viga":
+                        tipoClasses = "border border-white/20 font-medium text-xs";
+                        // Vigas têm representação linear mais estreita
+                        if (peca.direcao === "horizontal") {
+                          borderStyle = "border-t-2 border-b-2 border-t-white/50 border-b-white/50";
+                        } else {
+                          borderStyle = "border-l-2 border-r-2 border-l-white/50 border-r-white/50";
+                        }
+                        break;
+                      case "laje":
+                        tipoClasses = "border border-white/10 font-normal text-xs opacity-60";
+                        borderStyle = "border-dashed";
+                        break;
+                    }
+                    
                     return (
                       <div
                         key={peca.id}
@@ -215,17 +249,41 @@ const MapaConcretagem = () => {
                           ${getStatusColor(peca.status)} 
                           rounded opacity-80 hover:opacity-100 
                           flex items-center justify-center
-                          text-white text-xs font-medium
-                          cursor-pointer transition-all duration-200
+                          text-white cursor-pointer transition-all duration-200
                           hover:scale-105 hover:shadow-lg
+                          ${tipoClasses}
                         `}
                         style={{
                           gridColumn: `${peca.x} / span ${width}`,
                           gridRow: `${peca.y} / span ${height}`,
+                          position: "relative",
+                          ...(peca.tipo === "laje" && { 
+                            background: `linear-gradient(45deg, ${getStatusColor(peca.status).replace('bg-', 'rgba(')}, transparent 50%)`,
+                            opacity: 0.3 
+                          })
                         }}
                         title={`${peca.nome} - ${peca.tipo} - ${peca.status}`}
                       >
-                        {peca.nome}
+                        <span className={peca.tipo === "laje" ? "text-foreground font-medium" : ""}>
+                          {peca.nome}
+                        </span>
+                        
+                        {/* Indicador de eixo para pilares */}
+                        {peca.tipo === "pilar" && (
+                          <>
+                            <div className="absolute w-full h-px bg-white/50 top-1/2 left-0 transform -translate-y-1/2"></div>
+                            <div className="absolute h-full w-px bg-white/50 left-1/2 top-0 transform -translate-x-1/2"></div>
+                          </>
+                        )}
+                        
+                        {/* Linha de eixo para vigas */}
+                        {peca.tipo === "viga" && (
+                          <div className={`absolute ${
+                            peca.direcao === "horizontal" 
+                              ? "w-full h-px bg-white/70 top-1/2 left-0 transform -translate-y-1/2"
+                              : "h-full w-px bg-white/70 left-1/2 top-0 transform -translate-x-1/2"
+                          }`}></div>
+                        )}
                       </div>
                     );
                   })}
