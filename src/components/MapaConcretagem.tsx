@@ -18,7 +18,7 @@ const MapaConcretagem = () => {
   const [filtroStatus, setFiltroStatus] = useState("todos");
   const [pavimentoAtivo, setPavimentoAtivo] = useState("1");
 
-  // Dados simulados das peças estruturais com alinhamento correto
+  // Dados simulados das peças estruturais com alinhamento correto em todos os pavimentos
   const pecas = [
     // Pavimento 1 - Pilares nos eixos estruturais
     { id: 1, tipo: "pilar", nome: "P1", status: "concluido", x: 3, y: 3, pavimento: "1", data: "2024-01-10" },
@@ -28,30 +28,56 @@ const MapaConcretagem = () => {
     { id: 5, tipo: "pilar", nome: "P5", status: "concluido", x: 6, y: 6, pavimento: "1", data: "2024-01-10" },
     { id: 6, tipo: "pilar", nome: "P6", status: "concluido", x: 9, y: 6, pavimento: "1", data: "2024-01-10" },
     
-    // Vigas - eixos alinhados com pilares, faces alinhadas com bordas das lajes
-    { id: 7, tipo: "viga", nome: "V1", status: "em_andamento", x: 3, y: 2, pavimento: "1", width: 3, height: 1, direcao: "horizontal" },
-    { id: 8, tipo: "viga", nome: "V2", status: "em_andamento", x: 6, y: 2, pavimento: "1", width: 3, height: 1, direcao: "horizontal" },
-    { id: 9, tipo: "viga", nome: "V3", status: "planejado", x: 2, y: 3, pavimento: "1", width: 1, height: 3, direcao: "vertical" },
-    { id: 10, tipo: "viga", nome: "V4", status: "planejado", x: 10, y: 3, pavimento: "1", width: 1, height: 3, direcao: "vertical" },
-    { id: 15, tipo: "viga", nome: "V5", status: "em_andamento", x: 3, y: 7, pavimento: "1", width: 6, height: 1, direcao: "horizontal" },
-    { id: 16, tipo: "viga", nome: "V6", status: "planejado", x: 6, y: 3, pavimento: "1", width: 1, height: 4, direcao: "vertical" },
+    // Vigas Pav 1 - eixos alinhados com pilares, faces alinhadas com bordas das lajes
+    { id: 7, tipo: "viga", nome: "V1", status: "concluido", x: 3, y: 2, pavimento: "1", width: 3, height: 1, direcao: "horizontal" },
+    { id: 8, tipo: "viga", nome: "V2", status: "concluido", x: 6, y: 2, pavimento: "1", width: 3, height: 1, direcao: "horizontal" },
+    { id: 9, tipo: "viga", nome: "V3", status: "em_andamento", x: 2, y: 3, pavimento: "1", width: 1, height: 3, direcao: "vertical" },
+    { id: 10, tipo: "viga", nome: "V4", status: "em_andamento", x: 10, y: 3, pavimento: "1", width: 1, height: 3, direcao: "vertical" },
+    { id: 15, tipo: "viga", nome: "V5", status: "concluido", x: 3, y: 7, pavimento: "1", width: 6, height: 1, direcao: "horizontal" },
+    { id: 16, tipo: "viga", nome: "V6", status: "em_andamento", x: 6, y: 3, pavimento: "1", width: 1, height: 4, direcao: "vertical" },
     
-    // Lajes - faces alinhadas com faces das vigas
+    // Lajes Pav 1 - faces alinhadas com faces das vigas
     { id: 11, tipo: "laje", nome: "L1", status: "planejado", x: 3, y: 3, pavimento: "1", width: 3, height: 3 },
     { id: 12, tipo: "laje", nome: "L2", status: "planejado", x: 7, y: 3, pavimento: "1", width: 2, height: 3 },
 
-    // Pavimento 2 - Pilares alinhados com os do pav. inferior
-    { id: 21, tipo: "pilar", nome: "P1", status: "planejado", x: 3, y: 3, pavimento: "2" },
-    { id: 22, tipo: "pilar", nome: "P2", status: "planejado", x: 6, y: 3, pavimento: "2" },
-    { id: 23, tipo: "pilar", nome: "P3", status: "planejado", x: 9, y: 3, pavimento: "2" },
+    // Pavimento 2 - Mesmo alinhamento estrutural do Pav 1
+    { id: 21, tipo: "pilar", nome: "P1", status: "em_andamento", x: 3, y: 3, pavimento: "2" },
+    { id: 22, tipo: "pilar", nome: "P2", status: "em_andamento", x: 6, y: 3, pavimento: "2" },
+    { id: 23, tipo: "pilar", nome: "P3", status: "em_andamento", x: 9, y: 3, pavimento: "2" },
     { id: 24, tipo: "pilar", nome: "P4", status: "planejado", x: 3, y: 6, pavimento: "2" },
     { id: 25, tipo: "pilar", nome: "P5", status: "planejado", x: 6, y: 6, pavimento: "2" },
     { id: 26, tipo: "pilar", nome: "P6", status: "planejado", x: 9, y: 6, pavimento: "2" },
     
-    // Vigas do 2º pavimento
-    { id: 27, tipo: "viga", nome: "V1", status: "planejado", x: 3, y: 2, pavimento: "2", width: 3, height: 1, direcao: "horizontal" },
-    { id: 28, tipo: "viga", nome: "V2", status: "planejado", x: 6, y: 2, pavimento: "2", width: 3, height: 1, direcao: "horizontal" },
-    { id: 29, tipo: "laje", nome: "L1", status: "planejado", x: 3, y: 3, pavimento: "2", width: 6, height: 4 },
+    // Vigas Pav 2 - mesmo alinhamento do Pav 1
+    { id: 27, tipo: "viga", nome: "V1", status: "em_andamento", x: 3, y: 2, pavimento: "2", width: 3, height: 1, direcao: "horizontal" },
+    { id: 28, tipo: "viga", nome: "V2", status: "em_andamento", x: 6, y: 2, pavimento: "2", width: 3, height: 1, direcao: "horizontal" },
+    { id: 29, tipo: "viga", nome: "V3", status: "planejado", x: 2, y: 3, pavimento: "2", width: 1, height: 3, direcao: "vertical" },
+    { id: 30, tipo: "viga", nome: "V4", status: "planejado", x: 10, y: 3, pavimento: "2", width: 1, height: 3, direcao: "vertical" },
+    { id: 31, tipo: "viga", nome: "V5", status: "planejado", x: 3, y: 7, pavimento: "2", width: 6, height: 1, direcao: "horizontal" },
+    { id: 32, tipo: "viga", nome: "V6", status: "planejado", x: 6, y: 3, pavimento: "2", width: 1, height: 4, direcao: "vertical" },
+    
+    // Lajes Pav 2 - mesmo alinhamento do Pav 1
+    { id: 33, tipo: "laje", nome: "L1", status: "planejado", x: 3, y: 3, pavimento: "2", width: 3, height: 3 },
+    { id: 34, tipo: "laje", nome: "L2", status: "planejado", x: 7, y: 3, pavimento: "2", width: 2, height: 3 },
+
+    // Pavimento 3 - Cobertura com mesmo alinhamento
+    { id: 41, tipo: "pilar", nome: "P1", status: "planejado", x: 3, y: 3, pavimento: "3" },
+    { id: 42, tipo: "pilar", nome: "P2", status: "planejado", x: 6, y: 3, pavimento: "3" },
+    { id: 43, tipo: "pilar", nome: "P3", status: "planejado", x: 9, y: 3, pavimento: "3" },
+    { id: 44, tipo: "pilar", nome: "P4", status: "planejado", x: 3, y: 6, pavimento: "3" },
+    { id: 45, tipo: "pilar", nome: "P5", status: "planejado", x: 6, y: 6, pavimento: "3" },
+    { id: 46, tipo: "pilar", nome: "P6", status: "planejado", x: 9, y: 6, pavimento: "3" },
+    
+    // Vigas Pav 3 - mesmo alinhamento estrutural
+    { id: 47, tipo: "viga", nome: "V1", status: "planejado", x: 3, y: 2, pavimento: "3", width: 3, height: 1, direcao: "horizontal" },
+    { id: 48, tipo: "viga", nome: "V2", status: "planejado", x: 6, y: 2, pavimento: "3", width: 3, height: 1, direcao: "horizontal" },
+    { id: 49, tipo: "viga", nome: "V3", status: "planejado", x: 2, y: 3, pavimento: "3", width: 1, height: 3, direcao: "vertical" },
+    { id: 50, tipo: "viga", nome: "V4", status: "planejado", x: 10, y: 3, pavimento: "3", width: 1, height: 3, direcao: "vertical" },
+    { id: 51, tipo: "viga", nome: "V5", status: "planejado", x: 3, y: 7, pavimento: "3", width: 6, height: 1, direcao: "horizontal" },
+    { id: 52, tipo: "viga", nome: "V6", status: "planejado", x: 6, y: 3, pavimento: "3", width: 1, height: 4, direcao: "vertical" },
+    
+    // Laje de cobertura
+    { id: 53, tipo: "laje", nome: "LC1", status: "planejado", x: 3, y: 3, pavimento: "3", width: 6, height: 4 },
   ];
 
   const getStatusColor = (status: string) => {
@@ -183,6 +209,13 @@ const MapaConcretagem = () => {
                     onClick={() => setPavimentoAtivo("2")}
                   >
                     2º Pav
+                  </Button>
+                  <Button 
+                    variant={pavimentoAtivo === "3" ? "default" : "ghost"} 
+                    size="sm"
+                    onClick={() => setPavimentoAtivo("3")}
+                  >
+                    Cobertura
                   </Button>
                 </div>
                 <div className="flex gap-2">
@@ -366,25 +399,25 @@ const MapaConcretagem = () => {
               <div className="p-4 rounded-lg bg-blue-500/10 border border-blue-500/20">
                 <div className="font-medium text-blue-400 mb-2">Amanhã - 15/01</div>
                 <div className="text-sm text-muted-foreground">
-                  Vigas V3 e V4 - 1º Pavimento
+                  Vigas V3 e V4 - 2º Pavimento
                   <br />
-                  Volume estimado: 12.5 m³
+                  Volume estimado: 8.5 m³
                 </div>
               </div>
               <div className="p-4 rounded-lg bg-yellow-500/10 border border-yellow-500/20">
                 <div className="font-medium text-yellow-400 mb-2">18/01 - Sexta</div>
                 <div className="text-sm text-muted-foreground">
-                  Laje L1 - 1º Pavimento
+                  Lajes L1 e L2 - 2º Pavimento
                   <br />
-                  Volume estimado: 85.2 m³
+                  Volume estimado: 62.3 m³
                 </div>
               </div>
               <div className="p-4 rounded-lg bg-gray-500/10 border border-gray-500/20">
-                <div className="font-medium text-gray-400 mb-2">22/01 - Terça</div>
+                <div className="font-medium text-gray-400 mb-2">25/01 - Quinta</div>
                 <div className="text-sm text-muted-foreground">
-                  Pilares - 2º Pavimento
+                  Laje de Cobertura - 3º Pav
                   <br />
-                  Volume estimado: 28.3 m³
+                  Volume estimado: 95.8 m³
                 </div>
               </div>
             </div>
