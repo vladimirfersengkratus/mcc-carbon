@@ -1,6 +1,14 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Zap } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Menu, X, Zap, Settings, User, Database, FileText, Shield, Monitor } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +49,43 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="sm" className="gap-2">
+                  <Settings className="w-4 h-4" />
+                  Configurações
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                <DropdownMenuLabel>Menu de Comandos</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="gap-2">
+                  <User className="w-4 h-4" />
+                  <span>Gerenciar Usuários</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="gap-2">
+                  <Database className="w-4 h-4" />
+                  <span>Configurar Banco</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="gap-2">
+                  <FileText className="w-4 h-4" />
+                  <span>Relatórios</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="gap-2">
+                  <Shield className="w-4 h-4" />
+                  <span>Permissões</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="gap-2">
+                  <Monitor className="w-4 h-4" />
+                  <span>Sistema</span>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem className="gap-2">
+                  <Settings className="w-4 h-4" />
+                  <span>Preferências</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Button variant="ghost">Entrar</Button>
             <Button variant="gradient">
               Nova obra
@@ -74,13 +119,50 @@ const Navbar = () => {
                 </a>
               ))}
                <div className="flex flex-col space-y-2 pt-4 border-t border-white/10">
-                 <Button variant="ghost" className="justify-start">
-                   Entrar
-                 </Button>
-                 <Button variant="gradient" className="justify-start">
-                   Nova obra
-                 </Button>
-               </div>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" className="justify-start gap-2">
+                      <Settings className="w-4 h-4" />
+                      Configurações
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-56">
+                    <DropdownMenuLabel>Menu de Comandos</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem className="gap-2">
+                      <User className="w-4 h-4" />
+                      <span>Gerenciar Usuários</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="gap-2">
+                      <Database className="w-4 h-4" />
+                      <span>Configurar Banco</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="gap-2">
+                      <FileText className="w-4 h-4" />
+                      <span>Relatórios</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="gap-2">
+                      <Shield className="w-4 h-4" />
+                      <span>Permissões</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem className="gap-2">
+                      <Monitor className="w-4 h-4" />
+                      <span>Sistema</span>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem className="gap-2">
+                      <Settings className="w-4 h-4" />
+                      <span>Preferências</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <Button variant="ghost" className="justify-start">
+                  Entrar
+                </Button>
+                <Button variant="gradient" className="justify-start">
+                  Nova obra
+                </Button>
+              </div>
             </div>
           </div>
         )}
