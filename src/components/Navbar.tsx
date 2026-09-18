@@ -1,20 +1,9 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Menu, X, Zap, Settings, User, Database, FileText, Shield, Monitor } from "lucide-react";
-import { ConfigDialog } from "@/components/config/ConfigDialog";
-import { useToast } from "@/components/ui/use-toast";
+import { Menu, X, Zap } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { toast } = useToast();
 
   const navItems = [
     { name: "Início", href: "#home" },
@@ -23,13 +12,6 @@ const Navbar = () => {
     { name: "Planejamento", href: "#planejamento" },
     { name: "Mapa", href: "#mapa" }
   ];
-
-  const handleMenuCommand = (command: string) => {
-    toast({
-      title: "Comando Executado",
-      description: `${command} foi acessado`,
-    });
-  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 glass-card border-b border-white/10">
@@ -59,68 +41,6 @@ const Navbar = () => {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-4">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" size="sm" className="gap-2">
-                  <Settings className="w-4 h-4" />
-                  Configurações
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel>Menu de Comandos</DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <ConfigDialog 
-                  trigger={
-                    <DropdownMenuItem className="gap-2" onSelect={(e) => e.preventDefault()}>
-                      <User className="w-4 h-4" />
-                      <span>Gerenciar Usuários</span>
-                    </DropdownMenuItem>
-                  }
-                  activeTab="users"
-                />
-                <ConfigDialog 
-                  trigger={
-                    <DropdownMenuItem className="gap-2" onSelect={(e) => e.preventDefault()}>
-                      <Database className="w-4 h-4" />
-                      <span>Configurar Banco</span>
-                    </DropdownMenuItem>
-                  }
-                  activeTab="database"
-                />
-                <ConfigDialog 
-                  trigger={
-                    <DropdownMenuItem className="gap-2" onSelect={(e) => e.preventDefault()}>
-                      <FileText className="w-4 h-4" />
-                      <span>Relatórios</span>
-                    </DropdownMenuItem>
-                  }
-                  activeTab="reports"
-                />
-                <ConfigDialog 
-                  trigger={
-                    <DropdownMenuItem className="gap-2" onSelect={(e) => e.preventDefault()}>
-                      <Shield className="w-4 h-4" />
-                      <span>Permissões</span>
-                    </DropdownMenuItem>
-                  }
-                  activeTab="permissions"
-                />
-                <ConfigDialog 
-                  trigger={
-                    <DropdownMenuItem className="gap-2" onSelect={(e) => e.preventDefault()}>
-                      <Monitor className="w-4 h-4" />
-                      <span>Sistema</span>
-                    </DropdownMenuItem>
-                  }
-                  activeTab="system"
-                />
-                <DropdownMenuSeparator />
-                <DropdownMenuItem className="gap-2" onClick={() => handleMenuCommand("Preferências")}>
-                  <Settings className="w-4 h-4" />
-                  <span>Preferências</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
             <Button variant="ghost">Entrar</Button>
             <Button variant="gradient">
               Nova obra
@@ -154,75 +74,13 @@ const Navbar = () => {
                 </a>
               ))}
                <div className="flex flex-col space-y-2 pt-4 border-t border-white/10">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="justify-start gap-2">
-                      <Settings className="w-4 h-4" />
-                      Configurações
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-56">
-                    <DropdownMenuLabel>Menu de Comandos</DropdownMenuLabel>
-                    <DropdownMenuSeparator />
-                    <ConfigDialog 
-                      trigger={
-                        <DropdownMenuItem className="gap-2" onSelect={(e) => e.preventDefault()}>
-                          <User className="w-4 h-4" />
-                          <span>Gerenciar Usuários</span>
-                        </DropdownMenuItem>
-                      }
-                      activeTab="users"
-                    />
-                    <ConfigDialog 
-                      trigger={
-                        <DropdownMenuItem className="gap-2" onSelect={(e) => e.preventDefault()}>
-                          <Database className="w-4 h-4" />
-                          <span>Configurar Banco</span>
-                        </DropdownMenuItem>
-                      }
-                      activeTab="database"
-                    />
-                    <ConfigDialog 
-                      trigger={
-                        <DropdownMenuItem className="gap-2" onSelect={(e) => e.preventDefault()}>
-                          <FileText className="w-4 h-4" />
-                          <span>Relatórios</span>
-                        </DropdownMenuItem>
-                      }
-                      activeTab="reports"
-                    />
-                    <ConfigDialog 
-                      trigger={
-                        <DropdownMenuItem className="gap-2" onSelect={(e) => e.preventDefault()}>
-                          <Shield className="w-4 h-4" />
-                          <span>Permissões</span>
-                        </DropdownMenuItem>
-                      }
-                      activeTab="permissions"
-                    />
-                    <ConfigDialog 
-                      trigger={
-                        <DropdownMenuItem className="gap-2" onSelect={(e) => e.preventDefault()}>
-                          <Monitor className="w-4 h-4" />
-                          <span>Sistema</span>
-                        </DropdownMenuItem>
-                      }
-                      activeTab="system"
-                    />
-                    <DropdownMenuSeparator />
-                    <DropdownMenuItem className="gap-2" onClick={() => handleMenuCommand("Preferências")}>
-                      <Settings className="w-4 h-4" />
-                      <span>Preferências</span>
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-                <Button variant="ghost" className="justify-start">
-                  Entrar
-                </Button>
-                <Button variant="gradient" className="justify-start">
-                  Nova obra
-                </Button>
-              </div>
+                 <Button variant="ghost" className="justify-start">
+                   Entrar
+                 </Button>
+                 <Button variant="gradient" className="justify-start">
+                   Nova obra
+                 </Button>
+               </div>
             </div>
           </div>
         )}

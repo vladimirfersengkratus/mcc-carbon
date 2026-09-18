@@ -8,15 +8,15 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Civil engineering color system - Light theme */
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Civil engineering color system */
+    --background: 210 25% 8%;
+    --foreground: 45 15% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 210 25% 8%;
+    --card-foreground: 45 15% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 210 25% 8%;
+    --popover-foreground: 45 15% 95%;
 
     /* Primary: Engineering blue */
     --primary: 210 95% 55%;
@@ -24,11 +24,11 @@ All colors MUST be HSL.
     --primary-glow: 205 100% 65%;
 
     /* Secondary: Concrete gray */
-    --secondary: 210 10% 96%;
-    --secondary-foreground: 222.2 84% 4.9%;
+    --secondary: 210 10% 20%;
+    --secondary-foreground: 45 15% 95%;
 
-    --muted: 210 10% 96%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 10% 20%;
+    --muted-foreground: 45 10% 75%;
 
     /* Accent: Safety orange */
     --accent: 25 95% 60%;
@@ -37,8 +37,8 @@ All colors MUST be HSL.
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
+    --border: 210 15% 25%;
+    --input: 210 15% 25%;
     --ring: 210 95% 55%;
 
     --radius: 0.75rem;
