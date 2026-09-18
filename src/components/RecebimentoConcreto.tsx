@@ -197,7 +197,7 @@ const RecebimentoConcreto = () => {
                 </div>
               </div>
               <CardDescription className="text-slate-400 text-xs mt-1 font-normal">
-                Parâmetros normativos NBR 12655 (Slump, volume e $f_{ck}$)
+                Parâmetros normativos NBR 12655 (Slump, volume e FCK)
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4 pt-6">
