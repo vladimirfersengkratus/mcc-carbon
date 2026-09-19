@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -5,20 +6,14 @@ import {
   TrendingUp, 
   Truck, 
   Building, 
-  Beaker,
+  Beaker, 
   ArrowUpRight,
   Sparkles,
-  Layers,
   ArrowRight
 } from "lucide-react";
 
 const Dashboard = () => {
-  const scrollTo = (id: string) => {
-    const elem = document.getElementById(id);
-    if (elem) {
-      elem.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const navigate = useNavigate();
 
   const metrics = [
     {
@@ -59,7 +54,7 @@ const Dashboard = () => {
   ];
 
   return (
-    <section className="py-20 px-6 bg-[#080d14]" id="dashboard">
+    <section className="py-16 px-4 sm:px-6 bg-[#080d14]">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 bg-slate-900 border border-slate-800 px-4 py-1.5 rounded-full mb-4">
@@ -71,7 +66,7 @@ const Dashboard = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-4">
             Dashboard da Obra
           </h2>
-          <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-slate-300 max-w-2xl mx-auto font-normal">
             Visão consolidada de volumes recebidos, controle tecnológico e avanço físico das peças.
           </p>
         </div>
@@ -107,13 +102,13 @@ const Dashboard = () => {
               <div className="flex items-center justify-between">
                 <div>
                   <CardTitle className="text-lg font-bold text-white">Status da Concretagem por Pavimento</CardTitle>
-                  <CardDescription className="text-slate-400 text-sm">Resumo físico do cronograma estrutural</CardDescription>
+                  <CardDescription className="text-slate-400 text-sm font-normal">Resumo físico do cronograma estrutural</CardDescription>
                 </div>
                 <Button 
                   variant="outline" 
                   size="sm" 
                   className="border-slate-700 bg-slate-800 text-slate-200 text-xs"
-                  onClick={() => scrollTo("mapa")}
+                  onClick={() => navigate("/mapa")}
                 >
                   Abrir Planta Interativa
                   <ArrowRight className="w-3.5 h-3.5 ml-1" />
@@ -156,7 +151,7 @@ const Dashboard = () => {
                 <Button 
                   size="sm" 
                   className="bg-blue-600 hover:bg-blue-500 text-white text-xs"
-                  onClick={() => scrollTo("recebimento")}
+                  onClick={() => navigate("/recebimento")}
                 >
                   Registrar Nova Entrega
                 </Button>
@@ -164,7 +159,7 @@ const Dashboard = () => {
                   size="sm" 
                   variant="outline"
                   className="border-slate-700 bg-slate-800 text-slate-200 text-xs"
-                  onClick={() => scrollTo("planejamento")}
+                  onClick={() => navigate("/planejamento")}
                 >
                   Ver Planejamento de Volume
                 </Button>
@@ -176,7 +171,7 @@ const Dashboard = () => {
           <Card className="bg-slate-900/95 border border-slate-800 shadow-lg">
             <CardHeader>
               <CardTitle className="text-lg font-bold text-white">Últimas Ocorrências</CardTitle>
-              <CardDescription className="text-slate-400 text-sm">Histórico recente de campo</CardDescription>
+              <CardDescription className="text-slate-400 text-sm font-normal">Histórico recente de campo</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
@@ -190,7 +185,7 @@ const Dashboard = () => {
                         {activity.status}
                       </Badge>
                     </div>
-                    <p className="text-xs text-slate-300">
+                    <p className="text-xs text-slate-300 font-normal">
                       {activity.action}
                     </p>
                     <span className="text-[10px] text-slate-400 mt-1 block">
@@ -202,7 +197,7 @@ const Dashboard = () => {
               <Button 
                 variant="outline" 
                 className="w-full mt-4 border-slate-700 bg-slate-800 text-slate-200 hover:text-white text-xs"
-                onClick={() => scrollTo("recebimento")}
+                onClick={() => navigate("/recebimento")}
               >
                 Ver Todos os Recebimentos
               </Button>
